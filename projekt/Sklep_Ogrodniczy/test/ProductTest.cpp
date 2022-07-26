@@ -106,28 +106,28 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteProduct, TestSuiteProductFixture)
     }
     BOOST_AUTO_TEST_CASE(GetInfoPlantsTest) {
         ProductPtr p = std::make_shared<Plants>(testPrice, testStock, testName, testProductId);
-        BOOST_TEST(p->getInfo() == "Produkt: nazwa: " + testName + ", ilosc sztuki produktu: " + std::to_string(testStock) + ", cena za sztuke: " + std::to_string(testPrice) + ", numer produktu: " + testProductId);
+        BOOST_TEST(p->getInfo() == "Produkt: nazwa: " + testName + ", ilosc sztuki produktu: " + std::to_string(testStock) + ", cena za sztuke: " + std::to_string(testPrice) + ", numer produktu: " + testProductId + ", archiwizacja: 0");
     }
 
     BOOST_AUTO_TEST_CASE(GetInfoGardenAccessoriesTest) {
         ProductPtr p = std::make_shared<GardenAccessories>(testPrice, testStock, testName, testProductId, testWarrantyTime);
         BOOST_TEST(p->getInfo() ==
                    "Produkt: nazwa: " + testName + ", ilosc sztuki produktu: " + std::to_string(testStock) + ", cena za sztuke: " +
-                   std::to_string(testPrice) + ", numer produktu: " + testProductId + ", Czas gwarancji: " + std::to_string(testWarrantyTime));
+                   std::to_string(testPrice) + ", numer produktu: " + testProductId + ", archiwizacja: 0, Czas gwarancji: " + std::to_string(testWarrantyTime));
     }
 
     BOOST_AUTO_TEST_CASE(ContructorTest) {
         BOOST_REQUIRE_NO_THROW(Product testProduct(testPrice, testStock, testName, testProductId));
         Product testProduct(testPrice, testStock, testName, testProductId);
         BOOST_TEST(testProduct.getInfo() == "Produkt: nazwa: " + testName + ", ilosc sztuki produktu: " + std::to_string(testStock) + ", cena za sztuke: " +
-                std::to_string(testPrice)+ ", numer produktu: " + testProductId);
+                std::to_string(testPrice)+ ", numer produktu: " + testProductId + ", archiwizacja: 0");
     }
 
     BOOST_AUTO_TEST_CASE(ContructorGardenAccessoriesTest) {
         BOOST_REQUIRE_NO_THROW(GardenAccessories testProduct(testPrice, testStock, testName, testProductId, testWarrantyTime));
         GardenAccessories testProduct(testPrice, testStock, testName, testProductId, testWarrantyTime);
         BOOST_TEST(testProduct.getInfo() == "Produkt: nazwa: " + testName + ", ilosc sztuki produktu: " + std::to_string(testStock) + ", cena za sztuke: " +
-                                            std::to_string(testPrice) + ", numer produktu: " + testProductId + ", Czas gwarancji: " + std::to_string(testWarrantyTime) );
+                                            std::to_string(testPrice) + ", numer produktu: " + testProductId + ", archiwizacja: 0, Czas gwarancji: " + std::to_string(testWarrantyTime) );
     }
 
     BOOST_AUTO_TEST_CASE(ContructorGATestExceptions) {
